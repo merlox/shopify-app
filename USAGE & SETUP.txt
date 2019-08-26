@@ -1,0 +1,14 @@
+Create a .env file containing the following values:
+
+SHOPIFY_API_KEY='YOUR_KEY'
+SHOPIFY_API_SECRET_KEY='YOUR_SECRET'
+
+After setting up the project, go to:
+https://7b0a7dc4.ngrok.io/auth?shop=surflyfe.myshopify.com
+
+Which is:
+https://<YOUR_NGROK_URL>/auth?shop=<YOUR_DEV_SHOP>.myshopify.com
+
+That will install the application on your store and show the main page.
+
+Then you can interact with it by going to Apps/<your-app>
