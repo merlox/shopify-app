@@ -1,8 +1,9 @@
-import { Button, Form, FormLayout, Stack, TextField, Card, Layout, Page } from '@shopify/polaris'
+import { SettingToggle, TextStyle, Button, Form, FormLayout, Stack, TextField, Card, Layout, Page } from '@shopify/polaris'
 
 export default class AnnotatedLayout extends React.Component {
     state = {
-        discount: '10%'
+        discount: '10%',
+        enabled: false,
     }
 
     handleSubmit = () => {
@@ -16,8 +17,16 @@ export default class AnnotatedLayout extends React.Component {
         return value => this.setState({ [field]: value })
     }
 
+    handleToggle = () => {
+        this.setState(({ enabled }) => {
+            return { enabled: !enabled }
+        })
+    }
+
     render () {
-        const { discount } = this.state
+        const contentStatus = this.state.enabled ? 'Disabled' : 'Enable'
+        const textStatus = this.state.enabled ? 'enabled' : 'disabled'
+
         return (
             <Page>
                 <Layout>
@@ -29,7 +38,7 @@ export default class AnnotatedLayout extends React.Component {
                             <Form onSubmit={this.handleSubmit}>
                                 <FormLayout>
                                     <TextField
-                                        value={discount}
+                                        value={this.state.discount}
                                         onChange={this.handleChange('discount')}
                                         label="Discount percentage"
                                         type="discount"
@@ -42,6 +51,22 @@ export default class AnnotatedLayout extends React.Component {
                                 </FormLayout>
                             </Form>
                         </Card>
+                    </Layout.AnnotatedSection>
+
+                    <Layout.AnnotatedSection
+                        title="Price updates"
+                        description="Temporarily disable all price updates"
+                    >
+                        <SettingToggle
+                            action={{
+                                content: contentStatus,
+                                onAction: this.handleToggle,
+                            }}
+                            enabled={this.state.enabled}
+                        >
+                            This setting is {' '}
+                            <TextStyle variation="strong">{textStatus}</TextStyle>.
+                        </SettingToggle>
                     </Layout.AnnotatedSection>
                 </Layout>
             </Page>
