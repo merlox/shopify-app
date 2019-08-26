@@ -35,7 +35,7 @@ query getProducts($ids: [ID!]!) {
 `
 
 export default class ResourceListWithProducts extends React.Component {
-    static contextType = context
+    static contextType = Context
 
     render () {
         const app = this.context

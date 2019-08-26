@@ -1,7 +1,7 @@
 import { Banner, Toast, Card, DisplayText, Form, FormLayout, Layout, Page, PageActions, TextField } from '@shopify/polaris'
 import store from 'store-js'
 import gql from 'graphql-tag'
-import { mutation } from 'react-apollo'
+import { Mutation } from 'react-apollo'
 
 const UPDATE_PRICE = gql`
     mutation productVariantUpdate($input: ProductVariantInput!) {

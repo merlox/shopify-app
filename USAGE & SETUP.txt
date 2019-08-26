@@ -2,6 +2,8 @@ Create a .env file containing the following values:
 
 SHOPIFY_API_KEY='YOUR_KEY'
 SHOPIFY_API_SECRET_KEY='YOUR_SECRET'
+HOST='https://YOURNGROKADDRESS.io'
+API_VERSION='2019-04'
 
 After setting up the project, authenticate by going to:
 https://7b0a7dc4.ngrok.io/auth?shop=surflyfe.myshopify.com
