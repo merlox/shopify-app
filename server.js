@@ -12,6 +12,7 @@ const handle = app.getRequestHandler()
 const { SHOPIFY_API_SECRET_KEY, SHOPIFY_API_KEY } = process.env
 const { default: graphQLProxy } = require('@shopify/koa-shopify-graphql-proxy')
 const { ApiVersion } = require('@shopify/koa-shopify-graphql-proxy')
+const getSubscriptionUrl = require('./server/getSubscriptionUrl.js')
 
 app.prepare().then(() => {
     const server = new Koa()
