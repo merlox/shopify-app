@@ -30,7 +30,7 @@ app.prepare().then(() => {
                 ctx.cookies.set('shopOrigin', shop, { httpOnly: false })
                 const registration = await registerWebhook({
                     address: `${HOST}/webhooks/products/create`,
-                    topics: 'PRODUCTS_CREATE',
+                    topic: 'PRODUCTS_CREATE',
                     accessToken,
                     shop,
                 })
